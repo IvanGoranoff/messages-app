@@ -1,11 +1,17 @@
-import './App.css';
+import React from 'react';
+import HeaderComponent from './components/HeaderComponent';
+import ThreadsList from './components/ThreadsList';
+import FooterComponent from './components/FooterComponent';
+import './styles/main.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Messages app</h1>
-      </header>
+    <div className="container">
+      <HeaderComponent />
+      <main>
+        <ThreadsList />
+      </main>
+      <FooterComponent />
     </div>
   );
 }
