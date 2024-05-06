@@ -1,13 +1,13 @@
 // Import Comfortaa font from Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
 
-// Define colors and font settings
 $font-family: 'Comfortaa', cursive;
 $background-color: #f2f2f2;
 $text-color: #666;
-$high-rating-color: #9335ff;  
-$low-rating-color: #e89d40;  
-$border-color: #ccc;         
+$high-rating-color: #9335ff;
+$low-rating-color: #e89d40;
+$border-color: #ccc;
+
 body, html {
     margin: 0;
     padding: 0;
@@ -32,58 +32,48 @@ body, html {
 }
 
 .thread {
+    display: flex;
+    flex-direction: column;
+    background: #FFF;
     border: 1px solid $border-color;
-    margin: 10px 0;
-    padding: 10px;
-    cursor: pointer;
-    background-color: #fff;
+    margin: 8px 0;
+    padding: 12px;
     position: relative;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    &.collapsed .message {
-        display: none;
+    .count {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: #e89d40; // default low score color
+        color: #ffffff;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
     }
 
-    &.expanded .message {
-        display: block;
+    .high-rating .count {
+        background-color: #27aae1; // high score color
     }
 }
 
 .message {
-    border-top: 1px solid $border-color;
-    padding: 5px;
-
     h4 {
-        color: inherit;
-        margin: 0 0 5px 0;
-
-        &.high-rating {
-            color: $high-rating-color;
-        }
-
-        &.low-rating {
-            color: $low-rating-color;
-        }
+        margin-bottom: 4px;
+        color: #333;
+        font-size: 1rem;
     }
 
     p {
-        margin: 0;
-    }
-
-    .count {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 5px;
-        color: #fff;
-        background-color: $text-color; // Default, update dynamically
+        color: #666;
+        font-size: 14px;
     }
 }
 
-// Responsive adjustments for smaller screens
 @media (max-width: 320px) {
     .container {
         padding: 0 10px;
