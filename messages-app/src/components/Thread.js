@@ -14,10 +14,14 @@ function Thread({ messages }) {
     return (
         <div className={`thread ${isExpanded ? 'expanded' : 'collapsed'} ${highScoreExists ? 'high-rating' : ''}`} onClick={toggleExpanded}>
             <div className="thread-metadata">
-                <h4>Subject: {messages[0].subject}</h4>
-                <p>Team: {messages[0].team}</p>
-                <p>First Question: {messages[0].question}</p>
-                <p>Created at: {formatDate(messages[0].created_at)}</p>
+                <div className="metadata-content">
+                    <h4> {messages[0].subject}</h4>
+                    <p>{messages[0].question}</p>
+                </div>
+                <div className="metadata-details">
+                    <p> {messages[0].team}</p>
+                    <p>{formatDate(messages[0].created_at)}</p>
+                </div>
             </div>
             {isExpanded ? (
                 messages.map((message, index) => (
@@ -29,9 +33,9 @@ function Thread({ messages }) {
             ) : (
                 <div>
                     <h4 style={{ color: messages[0].score >= 6 ? '#9335ff' : '#e89d40' }}>{messages[0].subject}</h4>
-                    <p>{messages.length > 1 ? `${messages.length} messages` : messages[0].text}</p>
+                    <p>{messages[0].text}</p>
                     <div className="count" style={{ backgroundColor: messages[0].score >= 6 ? '#27aae1' : '#e89d40' }}>
-                        {messages.length}
+                        {messages.length} messages
                     </div>
                 </div>
             )}
