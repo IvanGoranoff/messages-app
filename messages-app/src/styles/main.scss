@@ -4,7 +4,7 @@
 // Define colors and variables
 $font-family: 'Comfortaa', cursive;
 $background-color: #f2f2f2;
-$text-color: #999999; // updated for contrast
+$text-color: #999999; 
 $high-rating-color: #9335ff;
 $low-rating-color: #e89d40;
 $border-color: #ccc;
@@ -61,7 +61,7 @@ body, html {
 .count {
     background-color: $low-rating-color;
     color: white;
-    padding: 3px 30px;
+    padding: 3px 50px;
     border-radius: 10px;
     font-size: 0.75rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -74,18 +74,23 @@ h4 {
     padding: 0;
     font-size: 1.1rem; 
 }
+h5 {
+    margin-top: -3%;
+    padding: 0;
+    font-size: 0.9rem; 
+}
 
 p {
     font-size: 0.95rem;
-    margin: 10px;
+    margin: 5px 22% 10px  0px ;
     
 }
 .message-card {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-    padding: 20px;
-    margin-top: 10px;
+    padding: 5% 3% 8% 5%;
+    margin-top: 10px !important;
     display: flex;
     flex-direction: column;
     align-items: stretch;

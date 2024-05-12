@@ -20,8 +20,8 @@ function Thread({ messages }) {
                     <p style={{ fontSize: '18px' }}>{messages[0].text}</p>
                 </div>
                 <div className="metadata-details">
-                    <p>{messages[0].team}</p>
-                    <p>{formatDate(messages[0].created_at)}</p>
+                    <h5>{messages[0].team}</h5>
+                    <h5>{formatDate(messages[0].created_at)}</h5>
                 </div>
                 {messages.length > 1 && !isExpanded && (
                     <div className="count" style={{ backgroundColor: messages[0].score >= 6 ? '#27aae1' : '#e89d40' }}>
@@ -37,8 +37,8 @@ function Thread({ messages }) {
                         <p style={{ fontSize: '18px' }}>{message.text}</p>
                     </div>
                     <div className="metadata-details">
-                        <p>{message.team}</p>
-                        <p>{formatDate(message.created_at)}</p>
+                        <h5>{message.team}</h5>
+                        <h5>{formatDate(message.created_at)}</h5>
                     </div>
                 </div>
             ))}
