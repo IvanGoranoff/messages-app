@@ -11,10 +11,9 @@ function Thread({ messages }) {
     const highScoreExists = messages.some(msg => msg.score >= 6);
 
     return (
-        <div className={`thread ${isExpanded ? 'expanded' : 'collapsed'} ${highScoreExists ? 'high-rating' : ''}`}
-            onClick={messages.length > 1 ? toggleExpanded : undefined}
-        >
-            <div className="thread-metadata">
+        <div className="thread">
+            <div className={`message-card ${highScoreExists ? 'high-rating' : ''}`}
+                onClick={toggleExpanded}>
                 <div className="metadata-content">
                     <h4 style={{ color: messages[0].score >= 6 ? '#9335ff' : '#e89d40' }}>{messages[0].subject}</h4>
                     <p>{messages[0].question}</p>
@@ -24,30 +23,28 @@ function Thread({ messages }) {
                     <p>{messages[0].team}</p>
                     <p>{formatDate(messages[0].created_at)}</p>
                 </div>
+                {messages.length > 1 && !isExpanded && (
+                    <div className="count" style={{ backgroundColor: messages[0].score >= 6 ? '#27aae1' : '#e89d40' }}>
+                        {messages.length}  messages
+                    </div>
+                )}
             </div>
-            {isExpanded ? (
-                messages.map((message, index) => (
-                    <div key={index} className="">
+            {isExpanded && messages.slice(1).map((message, index) => (
+                <div key={index} className="message-card">
+                    <div className="metadata-content">
                         <h4 style={{ color: message.score >= 6 ? '#9335ff' : '#e89d40' }}>{message.subject}</h4>
                         <p>{message.question}</p>
                         <p style={{ fontSize: '18px' }}>{message.text}</p>
-                        <div className="metadata-details">
-                            <p>{message.team}</p>
-                            <p>{formatDate(message.created_at)}</p>
-                        </div>
                     </div>
-                ))
-            ) : (
-                <div>
-                    {messages.length > 1 && (
-                        <div className="count" style={{ backgroundColor: messages[0].score >= 6 ? '#27aae1' : '#e89d40' }}>
-                            {messages.length} messages
-                        </div>
-                    )}
+                    <div className="metadata-details">
+                        <p>{message.team}</p>
+                        <p>{formatDate(message.created_at)}</p>
+                    </div>
                 </div>
-            )}
+            ))}
         </div>
     );
 }
+
 
 export default Thread;

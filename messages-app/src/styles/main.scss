@@ -38,62 +38,70 @@ body, html {
 .thread {
     display: flex;
     flex-direction: column;
-    background: #FFF;
-    margin: 30px 0;
-    padding: 0px 12px;
-    position: relative;
-    cursor: pointer;
+    margin: 20px 0;
+}
+
+
+.metadata-content {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metadata-details {
+    text-align: right;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -10%;
+    padding: 0;
+
+}
+
+.count {
+    background-color: $low-rating-color;
+    color: white;
+    padding: 3px 30px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: absolute;  
+    top: -7px;
+    right: 10px; 
+}
+h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem; 
+}
+
+p {
+    font-size: 0.95rem;
+    margin: 10px;
+    
+}
+.message-card {
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-
-    &:hover {
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .thread-metadata {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center;
-        padding: 10px; 
-        font-size: 0.85rem;
-    }
-    
-    .metadata-content {
-        flex: 3;
-    }
-    
-    .metadata-details {
-        flex: 1;
-        text-align: right;
-        font-size: 0.75rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    
-    
-    .date {
-        font-size: 0.65rem; 
-        color: #666; 
-    }
-    
-
-    .count {
-        position: absolute;
-        right: 10px;
-        top: -8px;
-        background-color: $low-rating-color; 
-        color: white;
-        padding: 3px 40px;
-        border-radius: 10px;
-        font-size: 0.75rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .high-rating .count {
-        background-color: $high-rating-color;
+    padding: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+    &:first-of-type {
+        margin-top: 0;
     }
 }
+
+
+
+.high-rating .count {
+    background-color: $high-rating-color;
+}
+
+
 @media (max-width: 320px) {
     .container {
         padding: 10px;
