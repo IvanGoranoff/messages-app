@@ -7,24 +7,20 @@ const formatDate = (dateString) => {
 
 function Thread({ messages }) {
     const [isExpanded, setIsExpanded] = useState(false);
-
-    const toggleExpanded = () => {
-        if (messages.length > 1) {
-            setIsExpanded(!isExpanded);
-        }
-    };
-
+    const toggleExpanded = () => setIsExpanded(!isExpanded);
     const highScoreExists = messages.some(msg => msg.score >= 6);
 
     return (
         <div className={`thread ${isExpanded ? 'expanded' : 'collapsed'} ${highScoreExists ? 'high-rating' : ''}`}
-            onClick={messages.length > 1 ? toggleExpanded : undefined} // Only add onClick if more than one message
+            onClick={messages.length > 1 ? toggleExpanded : undefined}
         >
             <div className="thread-metadata">
                 <div className="metadata-content">
                     <h4 style={{ color: messages[0].score >= 6 ? '#9335ff' : '#e89d40' }}>{messages[0].subject}</h4>
                     <p>{messages[0].question}</p>
                     <p style={{ fontSize: '18px' }}>{messages[0].text}</p>
+                </div>
+                <div className="metadata-details">
                     <p>{messages[0].team}</p>
                     <p>{formatDate(messages[0].created_at)}</p>
                 </div>
@@ -35,8 +31,10 @@ function Thread({ messages }) {
                         <h4 style={{ color: message.score >= 6 ? '#9335ff' : '#e89d40' }}>{message.subject}</h4>
                         <p>{message.question}</p>
                         <p style={{ fontSize: '18px' }}>{message.text}</p>
-                        <p>{message.team}</p>
-                        <p>{formatDate(message.created_at)}</p>
+                        <div className="metadata-details">
+                            <p>{message.team}</p>
+                            <p>{formatDate(message.created_at)}</p>
+                        </div>
                     </div>
                 ))
             ) : (
