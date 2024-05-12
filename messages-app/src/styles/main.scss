@@ -39,6 +39,7 @@ body, html {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+    position: relative
 }
 
 
@@ -86,21 +87,44 @@ p {
     
 }
 .message-card {
+    position: relative; 
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-    padding: 5% 3% 8% 5%;
-    margin-top: 10px !important;
+    padding:  20px 20px 30px 20px ;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    position: relative;
-    &:first-of-type {
-        margin-top: 0;
-    }
+    z-index: 5; 
+    margin: 20px 20px 0px 0px;
 }
 
+.placeholder-card {
+    position: absolute;
+    width: calc(97%);
+    height: calc(80% );
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transform: translate(10px, 10px);
+    top: 0px;
+    right:3%;
+    margin-top: 3.5%;
 
+}
+
+.count {
+    background-color: $high-rating-color;
+    color: white;
+    padding: 3px 50px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: absolute;
+    top: -7px;
+    right: 10px;
+    z-index: 4  !important; 
+}
 
 .high-rating .count {
     background-color: $high-rating-color;
