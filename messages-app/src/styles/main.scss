@@ -94,23 +94,6 @@ body, html {
         background-color: $high-rating-color;
     }
 }
-
-.message {
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-
-    h4 {
-        margin: 0;
-        color: $text-color;
-        font-size: 18px;
-    }
-
-    p {
-        color: $text-color;
-        font-size: 14px;
-    }
-}
-
 @media (max-width: 320px) {
     .container {
         padding: 10px;

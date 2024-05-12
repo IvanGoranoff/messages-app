@@ -27,7 +27,7 @@ function Thread({ messages }) {
             </div>
             {isExpanded ? (
                 messages.map((message, index) => (
-                    <div key={index} className="message">
+                    <div key={index} className="">
                         <h4 style={{ color: message.score >= 6 ? '#9335ff' : '#e89d40' }}>{message.subject}</h4>
                         <p>{message.question}</p>
                         <p style={{ fontSize: '18px' }}>{message.text}</p>
