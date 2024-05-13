@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
 
 const formatDate = (dateString) => {
-    const options = { month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-}
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString('en-US', { month: 'long' });
+
+    const suffix = (n) => {
+        const lastDigit = n % 10;
+        if (lastDigit === 1 && n !== 11) return `${n}st`;
+        if (lastDigit === 2 && n !== 12) return `${n}nd`;
+        if (lastDigit === 3 && n !== 13) return `${n}rd`;
+        return `${n}th`;
+    };
+    return `${month} ${suffix(day)}`;
+};
+
+
 
 function Thread({ messages }) {
     const [isExpanded, setIsExpanded] = useState(false);
